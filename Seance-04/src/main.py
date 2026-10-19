@@ -19,6 +19,38 @@ def ouvrirUnFichier(nom):
 # L'échantillonnage se base sur la répétitivité.
 print("Question 1")
 print("Résultat sur le calcul d'un intervalle de fluctuation")
+echantillons = ouvrirUnFichier("data/Echantillonnage-100-Echantillons.csv")
+print(echantillons)
+# calcul de la moyenne pour chaque colonne
+moyenne_pour = round(echantillons["Pour"].mean(), 0)
+print("Moyenne des personnes pour :", moyenne_pour)
+moyenne_contre = round(echantillons["Contre"].mean(), 0)
+print("Moyenne des personnes contre :", moyenne_contre)
+moyenne_sans_opinion = round(echantillons["Sans opinion"].mean(), 0)
+print("Moyenne des personnes sans opinion :", moyenne_sans_opinion)
+
+# calcul somme moyennes
+total = moyenne_pour + moyenne_contre + moyenne_sans_opinion
+# calcul fréquences
+frequence_pour = round(moyenne_pour / total, 2)
+frequence_contre = round(moyenne_contre / total, 2)
+frequence_sans_opinion = round(moyenne_sans_opinion / total, 2)
+print("Fréquence Pour :", frequence_pour)
+print("Fréquence Contre :", frequence_contre)
+print("Fréquence Sans opinion :", frequence_sans_opinion)
+
+# calcul fréquences pop mère
+population_pour = 852
+population_contre = 911
+population_sans_opinion = 422
+total_population = 2185
+frequence_population_pour = round(population_pour / total_population, 2)
+frequence_population_contre = round(population_contre / total_population, 2)
+frequence_population_sans_opinion = round(population_sans_opinion / total_population, 2)
+print("Fréquence Pop mère Pour :", frequence_population_pour)
+print("Fréquence Pop mère Contre :", frequence_population_contre)
+print("Fréquence Pop mère Sans opinion :", frequence_population_sans_opinion)
+
 
 # Question 2 : Théorie de l'estimation (intervalles de confiance)
 #L'estimation se base sur l'effectif.
