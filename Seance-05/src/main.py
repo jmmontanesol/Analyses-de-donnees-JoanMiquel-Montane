@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import scipy
 import scipy.stats
 import math
+from pathlib import Path
 
 def ouvrirUnFichier(nom):
     with open(nom, "r", encoding='utf-8') as fichier:
@@ -49,38 +50,49 @@ def classementPays(ordre1, ordre2):
 # Question 2
 print("Question 2")
 iles = ouvrirUnFichier("data/island-index.csv")
-print(iles.head())
+print(iles)
 
 # Question 3
-print("Question 3")
+print("\nQuestion 3")
+df = pd.DataFrame({
+    "Identifiant": iles["Identifiant"],
+    "Surface (km²)": iles["Surface (km²)"],
+})
+# Nouvelle ligne à ajouter
+nouvelle_ligne = pd.DataFrame({"Identifiant": ["Asie/Afrique/Europe", "Amérique", "Antarctique", "Australie"], "Surface (km²)": [85545323, 37856841, 7768030, 7605049]})
+df = pd.concat([df, nouvelle_ligne], ignore_index=True)
+print("\nDataFrame après ajout de la nouvelle ligne :")
+print(df)
 
 # Question 4
-print("Question 4")
+print("\nQuestion 4")
 
 # Question 5
-print("Question 5")
+print("\nQuestion 5")
+Path("img").mkdir(exist_ok=True)
 
 # Question 6
-print("Question 6")
+print("\nQuestion 6")
+
 
 # Question 7
-print("Question 7")
+print("\nQuestion 7")
 # Mettre ici votre réponse argumentée
 
 # Question 9
-print("Question 9")
+print("\nQuestion 9")
 
 # Question 10
-print("Question 10")
+print("\nQuestion 10")
 
 # Question 11
-print("Question 11")
+print("\nQuestion 11")
 
 # Question 12
-print("Question 12")
+print("\nQuestion 12")
 
 # Question 13
-print("Question 13")
+print("\nQuestion 13")
 
 # Question 14
-print("Question 14")
+print("\nQuestion 14")
